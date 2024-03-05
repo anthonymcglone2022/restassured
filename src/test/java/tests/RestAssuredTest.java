@@ -28,16 +28,16 @@ public class RestAssuredTest {
 	
 	@Test
 	void formatPostCode() {
-       Map.Entry<String,String> entry = TestData.formatPostCode.entrySet().iterator().next();
-       String unformattedPostCode = entry.getKey();
-       String formattedPostCode = entry.getValue();		
-		
-		given()
-		.when()
-			.get(Config.baseURL + Config.formatPostCode + unformattedPostCode)
-		.then()
-			.statusCode(Config.twoHundred)
-			.body(containsString(formattedPostCode));
+        Map.Entry<String,String> entry = TestData.formatPostCode.entrySet().iterator().next();
+        String unformattedPostCode = entry.getKey();
+        String formattedPostCode = entry.getValue();		
+	
+        given()
+        .when()
+            .get(Config.baseURL + Config.formatPostCode + unformattedPostCode)
+        .then()
+            .statusCode(Config.twoHundred)
+            .body(containsString(formattedPostCode));
 	}
 
 }
