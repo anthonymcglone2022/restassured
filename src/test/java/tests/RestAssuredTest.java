@@ -1,5 +1,7 @@
 package tests;
 
+import java.util.Map;
+
 import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.*;
@@ -22,6 +24,20 @@ public class RestAssuredTest {
             .body(TestData.code, equalTo(TestData.createPostCode.get(TestData.code)))
             .body(TestData.inuse, equalTo(TestData.createPostCode.get(TestData.inuse)))
             .body(TestData.district, equalTo(TestData.createPostCode.get(TestData.district)));			
+	}
+	
+	@Test
+	void formatPostCode() {
+       Map.Entry<String,String> entry = TestData.formatPostCode.entrySet().iterator().next();
+       String unformattedPostCode = entry.getKey();
+       String formattedPostCode = entry.getValue();		
+		
+		given()
+		.when()
+			.get(Config.baseURL + Config.formatPostCode + unformattedPostCode)
+		.then()
+			.statusCode(Config.twoHundred)
+			.body(containsString(formattedPostCode));
 	}
 
 }

@@ -19,4 +19,7 @@ public class TestData {
         put(district, "Ealing");
     }};	
 
+    public static Map<String, String> formatPostCode = new HashMap<String, String>() {{
+        put("w51*at", "W5 1AT");
+    }};
 }

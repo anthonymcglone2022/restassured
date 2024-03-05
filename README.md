@@ -1,4 +1,4 @@
-# Running the test cases
+# Running the API test cases
 
 - Run the [postcodes](https://github.com/anthonymcglone2022/postcodes) project
-- Run the tests with `mvn clean test`
+- Run the Rest Assured tests with `mvn clean test`
